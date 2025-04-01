@@ -1,0 +1,52 @@
+# Navigate into genome assembly folder 
+cd /Users/rachelhaakma/Desktop/Rachelgenome
+
+# Activate SPAdes
+conda activate spades410
+
+# Assemble genome using SPAdes v4.1.0
+spades.py -1 /Users/rachelhaakma/Desktop/Rachelgenome/Rachel_1.fastq.gz -2 /Users/rachelhaakma/Desktop/Rachelgenome/Rachel_2.fastq.gz -o spadesoutput
+
+# Run SPAdes as the first genome assembler
+spades.py -1 /Users/rachelhaakma/Desktop/Rachelgenome/Rachel_1.fastq.gz -2 /Users/rachelhaakma/Desktop/Rachelgenome/Rachel_2.fastq.gz -o spadesout
+
+# Assemble genome using ABySS v2.3.7
+abyss-pe name=assembly k=96 B=2G in='Rachel_1.fastq.gz Rachel_2.fastq.gz
+
+# Use QUAST v5.3.0 to complete a quality assessment of assembly
+quast.py spadesout/scaffolds.fasta -o quastspades
+quast.py abyssout/assembly-scaffolds.fa -o quastabyss
+ 
+# Annotation of Assembly
+dfast --genome spadesout/scaffolds.fasta --out dfast_output
+Initially received an error
+Cd ~
+Rm -r mini forge 3
+mkdir -p ~/miniconda3/envs/genomeanalysis/opt/dfast-1.3.6/
+cd ~/miniconda3/envs/genomeanalysis/opt/dfast-1.3.6/
+wget https://dfast.annotation.jp/dfast_core_db.tar.gz
+tar -xvzf dfast_core_db.tar.gz
+Delete dfast folder
+
+# Pull rRNA sequences with barrnap version 0.9
+barrnap --kingdom bac spadesout/scaffolds.fasta > rRNAsequences.gff
+
+# use bedtools v 2.31.1 to pull the FASTA sequences
+bedtools getfasta -fi spadesout/scaffolds.fasta -bed rRNAsequences.gff -fo rRNAsequences.fasta
+
+# use blastn to identify 16s rRNA sequence
+Closest match = E. Coli strain S171-1
+download two closets relatives to E. Coli: fergusonii and Alberti
+saved the fasta files into a new folder called neighbors
+
+# use dfast v 1.3.6 for protein annotation
+dfast --genome spadesout/scaffolds.fasta --out dfast_output
+
+# protein annotation with RAST. Domain bacteria, Genus Escherichia, species coli, Genetic code 11, RAST annotation RASTtk
+
+# average nucleotide identity with fastANI version 1.34
+fastANI -q spadesout/scaffolds.fasta --rl neighbors.txt -o ecolineighbors.txt
+
+# protein annotation with Prokka Galaxy Version 1.14.6+galaxy1
+
+# protein annotation with RAST. Domain bacteria, genus escherichia, species coli, genetic code 11, RAST Annotation RASTtk
