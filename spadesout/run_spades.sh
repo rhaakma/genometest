@@ -1,0 +1,17 @@
+set -e
+true
+true
+/Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/spades-hammer /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/corrected/configs/config.info
+/Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/python3 /Users/rachelhaakma/miniconda3/envs/genomeanalysis/share/spades/spades_pipeline/scripts/compress_all.py --input_file /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/corrected/corrected.yaml --ext_python_modules_home /Users/rachelhaakma/miniconda3/envs/genomeanalysis/share/spades --max_threads 16 --output_dir /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/corrected --gzip_output
+true
+true
+/Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/spades-core /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K21/configs/config.info
+/Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/spades-core /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K33/configs/config.info
+/Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/spades-core /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K55/configs/config.info
+/Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/spades-core /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K77/configs/config.info
+/Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/spades-core /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K99/configs/config.info
+/Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/spades-core /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/configs/config.info
+/Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/python3 /Users/rachelhaakma/miniconda3/envs/genomeanalysis/share/spades/spades_pipeline/scripts/copy_files.py /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/before_rr.fasta /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/before_rr.fasta /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/assembly_graph_after_simplification.gfa /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/assembly_graph_after_simplification.gfa /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/final_contigs.fasta /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/contigs.fasta /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/first_pe_contigs.fasta /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/first_pe_contigs.fasta /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/strain_graph.gfa /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/strain_graph.gfa /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/scaffolds.fasta /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/scaffolds.fasta /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/scaffolds.paths /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/scaffolds.paths /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/assembly_graph_with_scaffolds.gfa /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/assembly_graph_with_scaffolds.gfa /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/assembly_graph.fastg /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/assembly_graph.fastg /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/final_contigs.paths /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/contigs.paths
+true
+/Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/python3 /Users/rachelhaakma/miniconda3/envs/genomeanalysis/share/spades/spades_pipeline/scripts/breaking_scaffolds_script.py --result_scaffolds_filename /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/scaffolds.fasta --misc_dir /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/misc --threshold_for_breaking_scaffolds 3
+true

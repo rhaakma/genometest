@@ -1,0 +1,162 @@
+- STAGE: Before start
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: before_start
+- STAGE: Read error correction
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: ec_start
+- STAGE: Read error correction
+  args:
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/corrected/configs/config.info
+  config_dir: corrected
+  del_after:
+  - tmp/hammer_l6a8cbvn
+  output_files:
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/corrected/corrected.yaml
+  path: /Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/spades-hammer
+  short_name: ec_runtool
+- STAGE: corrected reads compression
+  args:
+  - /Users/rachelhaakma/miniconda3/envs/genomeanalysis/share/spades/spades_pipeline/scripts/compress_all.py
+  - --input_file
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/corrected/corrected.yaml
+  - --ext_python_modules_home
+  - /Users/rachelhaakma/miniconda3/envs/genomeanalysis/share/spades
+  - --max_threads
+  - '16'
+  - --output_dir
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/corrected
+  - --gzip_output
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: /Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/python3
+  short_name: ec_compress
+- STAGE: Read error correction
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: ec_finish
+- STAGE: Assembling
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: as_start
+- STAGE: K21
+  args:
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K21/configs/config.info
+  config_dir: K21
+  del_after: []
+  output_files: []
+  path: /Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/spades-core
+  short_name: k21
+- STAGE: K33
+  args:
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K33/configs/config.info
+  config_dir: K33
+  del_after: []
+  output_files: []
+  path: /Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/spades-core
+  short_name: k33
+- STAGE: K55
+  args:
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K55/configs/config.info
+  config_dir: K55
+  del_after: []
+  output_files: []
+  path: /Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/spades-core
+  short_name: k55
+- STAGE: K77
+  args:
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K77/configs/config.info
+  config_dir: K77
+  del_after: []
+  output_files: []
+  path: /Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/spades-core
+  short_name: k77
+- STAGE: K99
+  args:
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K99/configs/config.info
+  config_dir: K99
+  del_after: []
+  output_files: []
+  path: /Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/spades-core
+  short_name: k99
+- STAGE: K127
+  args:
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/configs/config.info
+  config_dir: K127
+  del_after: []
+  output_files: []
+  path: /Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/spades-core
+  short_name: k127
+- STAGE: Copy files
+  args:
+  - /Users/rachelhaakma/miniconda3/envs/genomeanalysis/share/spades/spades_pipeline/scripts/copy_files.py
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/before_rr.fasta
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/before_rr.fasta
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/assembly_graph_after_simplification.gfa
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/assembly_graph_after_simplification.gfa
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/final_contigs.fasta
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/contigs.fasta
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/first_pe_contigs.fasta
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/first_pe_contigs.fasta
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/strain_graph.gfa
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/strain_graph.gfa
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/scaffolds.fasta
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/scaffolds.fasta
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/scaffolds.paths
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/scaffolds.paths
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/assembly_graph_with_scaffolds.gfa
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/assembly_graph_with_scaffolds.gfa
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/assembly_graph.fastg
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/assembly_graph.fastg
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/K127/final_contigs.paths
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/contigs.paths
+  config_dir: ''
+  del_after:
+  - .bin_reads
+  - tmp/spades_6y2_bpdu
+  output_files: []
+  path: /Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/python3
+  short_name: copy_files
+- STAGE: Assembling
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: as_finish
+- STAGE: Breaking scaffolds
+  args:
+  - /Users/rachelhaakma/miniconda3/envs/genomeanalysis/share/spades/spades_pipeline/scripts/breaking_scaffolds_script.py
+  - --result_scaffolds_filename
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/scaffolds.fasta
+  - --misc_dir
+  - /Users/rachelhaakma/Desktop/Rachelgenome/spadesout/misc
+  - --threshold_for_breaking_scaffolds
+  - '3'
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: /Users/rachelhaakma/miniconda3/envs/genomeanalysis/bin/python3
+  short_name: bs
+- STAGE: Terminate
+  args: []
+  config_dir: ''
+  del_after:
+  - configs
+  output_files: []
+  path: 'true'
+  short_name: terminate

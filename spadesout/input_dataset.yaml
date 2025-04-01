@@ -1,0 +1,7 @@
+- "left reads":
+  - "/Users/rachelhaakma/Desktop/Rachelgenome/Rachel_1.fastq.gz"
+  "number": !!int "1"
+  "orientation": "fr"
+  "right reads":
+  - "/Users/rachelhaakma/Desktop/Rachelgenome/Rachel_2.fastq.gz"
+  "type": "paired-end"

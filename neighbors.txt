@@ -1,0 +1,2 @@
+spadesout/scaffolds.fasta	neighbors/fergusonii.fasta	90.9638	1133	1741
+spadesout/scaffolds.fasta	neighbors/albertii.fasta	90.0592	1254	1741
